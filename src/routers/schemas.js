@@ -14,7 +14,7 @@ export class Schemas extends Router {
         
         this.get("/Schemas", async (req, res) => {
             try {
-                res.send(await new SCIMMY.Resources.Schema(req.query).read());
+                res.send(await new SCIMMY.Resources.Schema(req.query).read(req));
             } catch (ex) {
                 res.status(ex.status ?? 500).send(new SCIMMY.Messages.Error(ex));
             }
@@ -22,7 +22,7 @@ export class Schemas extends Router {
         
         this.get("/Schemas/:id", async (req, res) => {
             try {
-                res.send(await new SCIMMY.Resources.Schema(req.params.id, req.query).read());
+                res.send(await new SCIMMY.Resources.Schema(req.params.id, req.query).read(req));
             } catch (ex) {
                 res.status(ex.status ?? 500).send(new SCIMMY.Messages.Error(ex));
             }

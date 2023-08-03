@@ -14,7 +14,7 @@ export class ServiceProviderConfig extends Router {
         
         this.get("/ServiceProviderConfig", async (req, res) => {
             try {
-                res.send(await new SCIMMY.Resources.ServiceProviderConfig(req.query).read());
+                res.send(await new SCIMMY.Resources.ServiceProviderConfig(req.query).read(req));
             } catch (ex) {
                 res.status(ex.status ?? 500).send(new SCIMMY.Messages.Error(ex));
             }
