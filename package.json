@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "scimmy": "^0.10.0"
+    "scimmy": "https://github.com/Foleon/scimmy.git#1.0.0"
   },
   "devDependencies": {
     "chalk": "^4.1.2",
