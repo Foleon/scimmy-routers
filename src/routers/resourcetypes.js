@@ -14,7 +14,7 @@ export class ResourceTypes extends Router {
         
         this.get("/ResourceTypes", async (req, res) => {
             try {
-                res.send(await new SCIMMY.Resources.ResourceType(req.query).read());
+                res.send(await new SCIMMY.Resources.ResourceType(req.query).read(req));
             } catch (ex) {
                 res.status(ex.status ?? 500).send(new SCIMMY.Messages.Error(ex));
             }
@@ -22,7 +22,7 @@ export class ResourceTypes extends Router {
         
         this.get("/ResourceTypes/:id", async (req, res) => {
             try {
-                res.send(await new SCIMMY.Resources.ResourceType(req.params.id, req.query).read());
+                res.send(await new SCIMMY.Resources.ResourceType(req.params.id, req.query).read(req));
             } catch (ex) {
                 res.status(ex.status ?? 500).send(new SCIMMY.Messages.Error(ex));
             }
